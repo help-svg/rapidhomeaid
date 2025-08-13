@@ -1,4 +1,4 @@
-export const runtime = "edge";
+﻿export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 const WATER_NUMBER = "+17863055509";
