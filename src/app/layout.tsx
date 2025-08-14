@@ -3,6 +3,7 @@ import Header from \"../components/Header\";
 import Footer from \"../components/Footer\";
 import { Analytics } from \"@vercel/analytics/react\";
 import { Inter } from \"next/font/google\";
+import Script from \"next/script\";
 
 const inter = Inter({ subsets: [\"latin\"], display: \"swap\" });
 
@@ -34,18 +35,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name=\"theme-color\" content=\"#0ea5e9\" />
         <link rel=\"icon\" href=\"/favicon.svg\" />
-        {/* Google tag (gtag.js) */}
-        <script async src=\"https://www.googletagmanager.com/gtag/js?id=AW-17456973426\"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: 
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-17456973426');
-            ,
-          }}
+
+        {/* ✅ Tailwind CDN fallback so the site is styled no matter what */}
+        <Script
+          id=\"tw-cdn\"
+          src=\"https://cdn.tailwindcss.com\"
+          strategy=\"beforeInteractive\"
         />
+        <Script id=\"tw-cdn-config\" strategy=\"beforeInteractive\">{
+          // optional: keep it minimal
+          tailwind.config = {
+            theme: { extend: {} },
+          };
+        }</Script>
+
+        {/* Google tag (gtag.js) via Next Script to satisfy lint */}
+        <Script
+          src=\"https://www.googletagmanager.com/gtag/js?id=AW-17456973426\"
+          strategy=\"afterInteractive\"
+        />
+        <Script id=\"gtag-init\" strategy=\"afterInteractive\">{
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-17456973426');
+        }</Script>
       </head>
       <body className={\\ min-h-screen\}>
         <Header />
