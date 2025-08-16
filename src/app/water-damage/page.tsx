@@ -1,71 +1,28 @@
-﻿import CallCTA from \"@/components/CallCTA\";
+import CallCTA from "@/components/CallCTA";
 
 export default function WaterDamage() {
   return (
-    <main className=\"space-y-10\">
-      <Hero
-        title=\"Water Damage Restoration\"
-        desc=\"Rapid extraction, structural drying, and dehumidification. On‑site in ~60 minutes. Insurance accepted.\"
-        img=\"https://images.unsplash.com/photo-1569529465848-e5d5a4673fdc?q=80&w=2000&auto=format&fit=crop\"
-      />
-      <Triptych />
-    </main>
-  );
-}
+    <div className="space-y-8">
+      <section className="rounded-3xl bg-gradient-to-br from-sky-500 to-sky-600 text-white px-6 py-10">
+        <h1 className="text-3xl md:text-4xl font-bold">Emergency Water Damage Repair</h1>
+        <p className="mt-2 text-white/90">Extraction, drying, dehumidification, and restoration — fast.</p>
+        <div className="mt-5"><CallCTA /></div>
+      </section>
 
-function Hero({ title, desc, img }: { title: string; desc: string; img: string }) {
-  return (
-    <section className=\"relative overflow-hidden rounded-3xl text-white\">
-      <div
-        className=\"absolute inset-0\"
-        style={{
-          backgroundImage: linear-gradient(135deg, rgba(2,6,23,0.75), rgba(2,132,199,0.55)), url('\'),
-          backgroundSize: \"cover\",
-          backgroundPosition: \"center\",
-        }}
-        aria-hidden
-      />
-      <div className=\"relative p-8 md:p-12\">
-        <h1 className=\"text-4xl md:text-5xl font-extrabold tracking-tight\">{title}</h1>
-        <p className=\"mt-3 max-w-2xl text-white/90\">{desc}</p>
-        <div className=\"mt-6\"><CallCTA /></div>
-      </div>
-    </section>
-  );
-}
-
-function Triptych() {
-  return (
-    <section className=\"grid gap-6 md:grid-cols-3\">
-      <Card title=\"What We Do\" items={[
-        \"Water extraction & removal\",
-        \"Drying & dehumidification\",
-        \"Mold prevention & sanitation\",
-        \"Insurance documentation\",
-      ]} />
-      <Card title=\"Typical Causes\" items={[
-        \"Burst or leaking pipes\",
-        \"Appliance failures\",
-        \"Storm & flood events\",
-        \"Roof or window leaks\",
-      ]} />
-      <Card title=\"Why Rapid Home Aid\" items={[
-        \"Certified, insured technicians\",
-        \"Fast arrival, 24/7\",
-        \"Insurance‑friendly process\",
-        \"Transparent updates\",
-      ]} />
-    </section>
-  );
-}
-
-function Card({ title, items }: { title: string; items: string[] }) {
-  return (
-    <div className=\"card p-6\">
-      <h2 className=\"text-xl font-semibold\">{title}</h2>
-      <ul className=\"mt-3 list-disc pl-5 text-slate-700 space-y-1\">
-        {items.map((t) => <li key={t}>{t}</li>)}
-      </ul>
+      <section className="grid md:grid-cols-3 gap-6">
+        <div className="card p-6">
+          <h3 className="font-semibold">Rapid Response</h3>
+          <p className="mt-1 text-slate-600">On-site in ~60 minutes. 24/7 dispatch.</p>
+        </div>
+        <div className="card p-6">
+          <h3 className="font-semibold">Certified Pros</h3>
+          <p className="mt-1 text-slate-600">IICRC guidelines for drying and remediation.</p>
+        </div>
+        <div className="card p-6">
+          <h3 className="font-semibold">Insurance Ready</h3>
+          <p className="mt-1 text-slate-600">We help document the loss for claims.</p>
+        </div>
+      </section>
     </div>
   );
 }

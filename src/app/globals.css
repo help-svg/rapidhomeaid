@@ -1,4 +1,4 @@
-﻿@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -7,13 +7,12 @@
   --brand: #0ea5e9;       /* sky-500 */
   --brand-600: #0284c7;   /* sky-600 */
 }
-
 html, body { height: 100%; }
 
 body {
   @apply bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900 antialiased;
 }
 
-/* Reusable card + smooth hover */
+/* Reusable */
 .card { @apply rounded-2xl bg-white ring-1 ring-slate-200; }
 .smooth { @apply transition duration-200; }
